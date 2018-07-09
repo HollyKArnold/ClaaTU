@@ -12,7 +12,8 @@ A CTU is simply a monophylitic clade of organisms within a phylogentic tree. A C
 ### ClaaTU Algorithm
 The idea behind ClaaTU is simple. ClaaTU uses two input files:
 * An OTU or ASV table 
-* A phylogenetic tree representing how OTUs (or ASVs) are related to one another. 
+* A phylogenetic tree representing how OTUs (or ASVs) are related to one another.
+* (Optional) a taxonomy file which labels each OTU with taxonomy
 
 The output is a Cladal Taxonomic Unit Matrix m with the following properties:
 * the row names correspond to the OTU sample names
@@ -26,6 +27,15 @@ First things first, lets install the software.
 ```markdown
 git 
 ```
+
+### Step 1: Prep phylogenetic tree (prep_tree.py)
+### Step 2: Get the CTU Matrix (count_tree.py)
+### Step 3: Get CTU Stats (clade_stat.py)
+### Step 4: Get CTU taxonomy (tax_parser.py)
+### Step 5: Node_info.py
+### Step 6A: Significance (ptest_tree.py)
+### Step 6B: Significance by Group (ptest_tree.py)
+
 
 You can use the [editor on GitHub](https://github.com/arnold3/CTU_Tutorial/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
