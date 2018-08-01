@@ -1,5 +1,5 @@
 ##  THIS PAGE UNDER CONSTRUCTION 
-Welcome to a tutorial on ClaaTU. This page is under construction to provide a tutorial guide for ClaaTU. The goal of this tutorial is for you to be able to understand the theory behind ClaaTU, as well as be able to apply ClaaTU as a tool to your own data. 
+Welcome to a tutorial on ClaaTU. This page is under construction to provide a tutorial guide for ClaaTU. The goals of this tutorial is for you to be able to (quickly) understand the theory behind ClaaTU, as well as be able to apply ClaaTU as a tool to your own data. 
 
 ### What is CLAATU?
 Claatu is a new bioinformatic tool created by Sharpton lab (link here to Chris' website). You can check out our new paper which implements this tool here (add link here). The ClaaTU Algorithm allows us to discover *Cladal Taxonomic Units*, or CTUs. If you've worked doing any microbiome analysis before, you are familiar with an Operational Taxonomic Unit (OTU) table that are output by many softwares such as QIIME, Mothur, or an Amplicon Sequence Variant (ASV) table output by Dada2. ClaaTU can work with any of these common software outputs to discover CTUs in your data. 
@@ -25,12 +25,27 @@ The output is a Cladal Taxonomic Unit Matrix m with the following properties:
 ### Install
 First things first, lets install the software. 
 ```markdown
-git git@github.com:arnold3/CTU_Tutorial.git
+git git@github.com:arnold3/ClaaTU.git
 ```
-You can move the CTU_Tutorial folder to whatever working directory you wish. Just note the path because we will use this later.
+
+It will be easiest for the sake of the tutorial to make a working directory with ClaaTU files you just downloaded. Later, you can move ClaaTU and your working directory other places. 
+```markdown
+mkdir claatu_tutorial
+mv <path_to_ClaaTU> claatu_tutorial
+```
+Navigate into the claatu_tutorial folder and make a directory for our output files.
+```markdown
+cd claatu_tutorial
+mkdir out/
+```
+
 
 ### Files
-
+Lets take a look at what the files are in the ClaaTU folder:
+```markdown
+cd ClaaTU
+ls
+```
 
 
 
