@@ -25,8 +25,14 @@ The output is a Cladal Taxonomic Unit Matrix m with the following properties:
 ### Install
 First things first, lets install the software. 
 ```markdown
-git 
+git git@github.com:arnold3/CTU_Tutorial.git
 ```
+You can move the CTU_Tutorial folder to whatever working directory you wish. Just note the path because we will use this later.
+
+### Files
+
+
+
 
 ### Step 1: Prep phylogenetic tree (prep_tree.py)
 ### Step 2: Get the CTU Matrix (count_tree.py)
