@@ -72,8 +72,8 @@ more otu.txt
 </p>
 In our tutorial dataset, we have OTUs sampled from various animals (the column names) and the columns are OTUs. We can see that otu's are named `otu1, otu2, ... otuN`. 
 
-alskdjfa;flkdsj
-![otuTest](https://github.com/arnold3/ClaaTU/blob/master/Claatu-master/tutorialImages/otuTableFormatImage.png)
+Test image 1
+<img src="https://github.com/arnold3/ClaaTU/blob/master/Claatu-master/tutorialImages/otuTableFormatImage.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
 
 #### Bacterial tree
 The second required file is a bacterial phylogenetic tree. File format requirements:
