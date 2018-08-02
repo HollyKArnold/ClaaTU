@@ -1,4 +1,4 @@
-##  THIS PAGE UNDER CONSTRUCTION 
+##  CLAATU Tutorial
 Welcome to a tutorial on ClaaTU. This page is under construction to provide a tutorial guide for ClaaTU. The goals of this tutorial is for you to be able to (quickly) understand the theory behind ClaaTU, as well as be able to apply ClaaTU as a tool to your own data. 
 
 ### What is CLAATU?
@@ -65,20 +65,7 @@ So, now, lets take a look at our particular example:
 ```markdown
 more otu.txt
 ```
-<p align="center">
-<kbd>
-<img src="https://github.com/arnold3/ClaaTU/blob/master/Claatu-master/tutorialImages/otuTableFormatImage.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
-</kbd>
-</p>
-In our tutorial dataset, we have OTUs sampled from various animals (the column names) and the columns are OTUs. We can see that otu's are named `otu1, otu2, ... otuN`. 
 
-Test image 1
-<img src="https://github.com/arnold3/ClaaTU/blob/master/Claatu-master/tutorialImages/otuTableFormatImage.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
-
-Test image 2
-![testImage2](Claatu-master/tutorialImages/otuTableFormatImage.png) 
-
-TestImage 3
 <p align="center">
 <kbd>
 <img src="Claatu-master/tutorialImages/otuTableFormatImage.png" width="60%" height="60%" align="center" style="border:3px solid black"/>
@@ -97,7 +84,7 @@ more bacterial.tre
 
 <p align="center">
 <kbd>
-<img src="https://github.com/arnold3/ClaaTU/blob/master/Claatu-master/tutorialImages/bacterialTreeFormat.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
+<img src="Claatu-master/tutorialImages/bacterialTreeFormatImage.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
 </kbd>
 </p>
 
@@ -118,38 +105,3 @@ python ../bin/prep_tree.py bacteria.tre
 ### Step 6B: Significance by Group (ptest_tree.py)
 
 
-You can use the [editor on GitHub](https://github.com/arnold3/CTU_Tutorial/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/arnold3/CTU_Tutorial/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
