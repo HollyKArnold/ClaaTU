@@ -77,7 +77,12 @@ Test image 1
 
 Test image 2
 ![testImage2](Claatu-master/tutorialImages/otuTableFormatImage.png) 
-https://github.com/arnold3/ClaaTU
+
+TestImage 3
+<kbd>
+<img src="Claatu-master/tutorialImages/otuTableFormatImage.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
+</kbd>
+
 
 #### Bacterial tree
 The second required file is a bacterial phylogenetic tree. File format requirements:
