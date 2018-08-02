@@ -54,6 +54,7 @@ Held within ```bin/``` are all the scripts which will carry out the Claatu algor
 ```
 Here, we can see there are three files. These are the tree files that you will need to run Claatu. Let's take a look at each one of them in a little more detail.
 #### OTU Table
+
 The first file that you will need is the OTU table that is output from QIIME. File format requirements:
 - All entries must be tab separated.
 - In standard QIIME output, there is text before the OTU table itself. To mark the beginning of the OTU table, QIIME adds a `#OTU ID` before the table. Yes, that is a `#OTU<space>ID<tab>`. This is important to note if you are not getting your OTU table from QIIME, but from another source.
@@ -64,9 +65,11 @@ So, now, lets take a look at our particular example:
 ```markdown
 more otu.txt
 ```
-<img src="https://github.com/arnold3/ClaaTU/blob/master/Claatu-master/tutorialImages/otuTableFormatImage.png" width="50%" height="50%" class=center />
-
-
+<p align="center">
+<kbd>
+<img src="https://github.com/arnold3/ClaaTU/blob/master/Claatu-master/tutorialImages/otuTableFormatImage.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
+</kbd>
+</p>
 
 #### Bacterial tree
 
