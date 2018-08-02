@@ -97,11 +97,26 @@ In our tutorial dataset, we see that we have a newick formated file, and that we
 
 ### Step 1: Prep phylogenetic tree (prep_tree.py)
 
-Our first step is to prep the phylogenetic tree that we've created.
+Our first step is to prep the phylogenetic tree that we've created for use in the Claatu algorithm. This step performs several things:
+1. Labels Nodes. `prep_tree.py` will label nodes of the tree. These will be in the format `n_i` where `i` is the node number. These will be our clade names. Nodes will be labeled in a pre-traversal order. That is, the current node will be labeled before any of the children of the current node are labeled. This means root will be labeled as 1.
+2. Midpoint rooting (Optional). We have the option of midpoint rooting the phylogenetic tree. This is helpful for bacterial trees because there is no appropriate outgroup to root the bacterial tree. Considerations for your own data: if you do not wish to midpoint root, simply don't pass the -mid flag to `prep_tree.py`. 
+3. Update Bipartitions (Optional). Using this argument, we update the internal splits hash representation of the phylogenetic tree in dendropy. This has a time cost, and is not automatically called. However, if you are going to do any futher calculations (i.e. comparing trees, calculating statistics on trees, etc. it is good to call this.) 
+4. Bootstraps (Optional). If the tree has bootstrap values, you can read more [here](https://github.com/chrisgaulke/Claatu/blob/master/bin/prep_tree.py). Our tree does not have bootstraps, so we will pass the `-nbs` flag to indicate no bootstraps.
 
+ 
+Lets go ahead and run the command now and look at the output files
 ```python
-python ../bin/prep_tree.py bacteria.tre 
+python ../bin/prep_tree.py bacteria.tre -mid -up_bi -nbs
+ls
 ```
+This step creates two output files:
+1. new_prepped_tree.tre
+This is our new prepped tree with nodes labeled. Lets go ahead and take a look at it:
+
+2. bootstraps_prep_tree.txt
+Ignore this file because our tree did not have any bootstraps.
+
+
 ### Step 2: Get the CTU Matrix (count_tree.py)
 ### Step 3: Get CTU Stats (clade_stat.py)
 ### Step 4: Get CTU taxonomy (tax_parser.py)
