@@ -47,8 +47,28 @@ You should see the following
 arc/  bin/  LICENSE.txt  test/  tutorialData/
 
 ```
-Held within ```bin/``` are all the scripts which will carry out the Claatu algorithm. Held within `tutorialData/` are all of our tutorial files. This is where we are going to be working. Navigate to the `tutorialData` folder ```cd tutorialData/```.
+Held within ```bin/``` are all the scripts which will carry out the Claatu algorithm. Held within `tutorialData/` are all of our tutorial files. This is where we are going to be working. Navigate to the `tutorialData` folder 
+```markdown 
+  cd tutorialData/
+  ls
+```
+Here, we can see there are three files. These are the tree files that you will need to run Claatu. Let's take a look at each one of them in a little more detail.
+#### OTU Table
+The first file that you will need is the OTU table that is output from QIIME. File format requirements:
+- All entries must be tab separated.
+- In standard QIIME output, there is text before the OTU table itself. To mark the beginning of the OTU table, QIIME adds a `#OTU ID` before the table. Yes, that is a `#OTU<space>ID<tab>`. This is important to note if you are not getting your OTU table from QIIME, but from another source.
+- Column names are *sample IDs*
+- Row names are *otu names*
 
+So, now, lets take a look at our particular example:
+```markdown
+more otu.txt
+```
+
+
+#### Bacterial tree
+
+#### OTU Taxonomy table
 
 
 ### Step 1: Prep phylogenetic tree (prep_tree.py)
