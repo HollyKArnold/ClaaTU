@@ -70,8 +70,25 @@ more otu.txt
 <img src="https://github.com/arnold3/ClaaTU/blob/master/Claatu-master/tutorialImages/otuTableFormatImage.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
 </kbd>
 </p>
+In our tutorial dataset, we have OTUs sampled from various animals (the column names) and the columns are OTUs. We can see that otu's are named `otu1, otu2, ... otuN`. 
 
 #### Bacterial tree
+The second required file is a bacterial phylogenetic tree. File format requirements:
+- newick format
+- The tip labels must match the OTU labels in our otutable (`otu1, otu2, ... otuN`) exactly. Likewise, the names in the `.tre` file must exactly match those in the otu table.
+
+```markdown
+more bacterial.tre
+```
+
+<p align="center">
+<kbd>
+<img src="https://github.com/arnold3/ClaaTU/blob/master/Claatu-master/tutorialImages/bacterialTreeFormat.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
+</kbd>
+</p>
+
+In our tutorial dataset, we see that we have a newick formated file, and that we have tree tips named similarly to the otu table. 
+
 
 #### OTU Taxonomy table
 
