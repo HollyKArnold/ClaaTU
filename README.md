@@ -1,3 +1,0 @@
-# ClaaTU
-ks
-[link]
