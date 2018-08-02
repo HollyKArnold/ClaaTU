@@ -64,6 +64,8 @@ So, now, lets take a look at our particular example:
 ```markdown
 more otu.txt
 ```
+<img src="https://github.com/arnold3/ClaaTU/blob/master/Claatu-master/tutorialImages/otuTableFormatImage.png" width="50%" height="50%" class=center />
+
 
 
 #### Bacterial tree
