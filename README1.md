@@ -2,7 +2,7 @@
 Welcome to a tutorial on ClaaTU. This page is under construction to provide a tutorial guide for ClaaTU. The goals of this tutorial is for you to be able to (quickly) understand the theory behind ClaaTU, as well as be able to apply ClaaTU as a tool to your own data. 
 
 ### What is CLAATU?
-Claatu is a new bioinformatic tool created by Sharpton lab (link here to Chris' website). You can check out our new paper which implements this tool here (add link here). The ClaaTU Algorithm allows us to discover *Cladal Taxonomic Units*, or CTUs. If you've worked doing any microbiome analysis before, you are familiar with an Operational Taxonomic Unit (OTU) table that are output by many softwares such as QIIME, Mothur, or an Amplicon Sequence Variant (ASV) table output by Dada2. ClaaTU can work with any of these common software outputs to discover CTUs in your data. 
+Claatu is a new bioinformatic tool created by Chris Gaulke in the Sharpton lab (https://github.com/chrisgaulke/Claatu). You can check out our new paper which implements this tool here (add link here). The ClaaTU Algorithm allows us to discover *Cladal Taxonomic Units*, or CTUs. If you've worked doing any microbiome analysis before, you are familiar with an Operational Taxonomic Unit (OTU) table that are output by many softwares such as QIIME, Mothur, or an Amplicon Sequence Variant (ASV) table output by Dada2. ClaaTU can work with any of these common software outputs to discover CTUs in your data. 
 
 ### What is a CTU?
 A CTU is simply a monophylitic clade of organisms within a phylogentic tree. A CTU can occur at any point along the phylogenetic tree: very close to the tree tips, or very deep within the tree. For the purposes of the tutorial, think of the tree tips as the OTU names. Think of nodes within the tree as CTU names.
@@ -28,7 +28,7 @@ First things first, lets install the software.
 git git@github.com:arnold3/ClaaTU.git
 ```
 
-## Dependencies
+### Dependencies
 If you need to, you will have to install the following dependencies
 1. [python (2.7.10)](https://www.python.org/downloads/)
 2. [dendropy (4.0.2)](https://www.dendropy.org)
@@ -53,6 +53,8 @@ Held within ```bin/``` are all the scripts which will carry out the Claatu algor
   ls
 ```
 Here, we can see there are three files. These are the tree files that you will need to run Claatu. Let's take a look at each one of them in a little more detail.
+
+
 #### OTU Table
 
 The first file that you will need is the OTU table that is output from QIIME. File format requirements:
@@ -94,6 +96,9 @@ In our tutorial dataset, we see that we have a newick formated file, and that we
 
 
 ### Step 1: Prep phylogenetic tree (prep_tree.py)
+
+Our first step is to prep the phylogenetic tree that we've created.
+
 ```python
 python ../bin/prep_tree.py bacteria.tre 
 ```
