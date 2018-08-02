@@ -28,28 +28,33 @@ First things first, lets install the software.
 git git@github.com:arnold3/ClaaTU.git
 ```
 
-It will be easiest for the sake of the tutorial to make a working directory with ClaaTU files you just downloaded. Later, you can move ClaaTU and your working directory other places. 
-```markdown
-mkdir claatu_tutorial
-mv <path_to_ClaaTU> claatu_tutorial
-```
-Navigate into the claatu_tutorial folder and make a directory for our output files.
-```markdown
-cd claatu_tutorial
-mkdir out/
-```
+## Dependencies
+If you need to, you will have to install the following dependencies
+1. [python (2.7.10)](https://www.python.org/downloads/)
+2. [dendropy (4.0.2)](https://www.dendropy.org)
+3. [scipy (0.13.0b1)](https://www.scipy.org/install.html)
+4. [numpy (1.8.0rc1)](https://docs.scipy.org/doc/numpy/user/install.html)
 
 
 ### Files
-Lets take a look at what the files are in the ClaaTU folder:
+Lets take a look at what the files are in the ClaaTU folder. Navigate to the location you downloaded Claatu to, then type: 
 ```markdown
-cd ClaaTU
+cd Claatu-master
 ls
 ```
+You should see the following
+```markdown
+arc/  bin/  LICENSE.txt  test/  tutorialData/
+
+```
+Held within ```bin/``` are all the scripts which will carry out the Claatu algorithm. Held within `tutorialData/` are all of our tutorial files. This is where we are going to be working. Navigate to the `tutorialData` folder ```cd tutorialData/```.
 
 
 
 ### Step 1: Prep phylogenetic tree (prep_tree.py)
+```python
+python ../bin/prep_tree.py bacteria.tre 
+```
 ### Step 2: Get the CTU Matrix (count_tree.py)
 ### Step 3: Get CTU Stats (clade_stat.py)
 ### Step 4: Get CTU taxonomy (tax_parser.py)
