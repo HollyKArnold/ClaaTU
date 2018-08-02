@@ -72,6 +72,9 @@ more otu.txt
 </p>
 In our tutorial dataset, we have OTUs sampled from various animals (the column names) and the columns are OTUs. We can see that otu's are named `otu1, otu2, ... otuN`. 
 
+alskdjfa;flkdsj
+![otuTest](https://github.com/arnold3/ClaaTU/blob/master/Claatu-master/tutorialImages/otuTableFormatImage.png)
+
 #### Bacterial tree
 The second required file is a bacterial phylogenetic tree. File format requirements:
 - newick format
@@ -88,7 +91,6 @@ more bacterial.tre
 </p>
 
 In our tutorial dataset, we see that we have a newick formated file, and that we have tree tips named similarly to the otu table. 
-
 
 #### OTU Taxonomy table
 
