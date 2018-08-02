@@ -79,9 +79,11 @@ Test image 2
 ![testImage2](Claatu-master/tutorialImages/otuTableFormatImage.png) 
 
 TestImage 3
+<p align="center">
 <kbd>
-<img src="Claatu-master/tutorialImages/otuTableFormatImage.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
+<img src="Claatu-master/tutorialImages/otuTableFormatImage.png" width="60%" height="60%" align="center" style="border:3px solid black"/>
 </kbd>
+</p>
 
 
 #### Bacterial tree
