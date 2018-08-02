@@ -75,6 +75,10 @@ In our tutorial dataset, we have OTUs sampled from various animals (the column n
 Test image 1
 <img src="https://github.com/arnold3/ClaaTU/blob/master/Claatu-master/tutorialImages/otuTableFormatImage.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
 
+Test image 2
+![testImage2](Claatu-master/tutorialImages/otuTableFormatImage.png) 
+https://github.com/arnold3/ClaaTU
+
 #### Bacterial tree
 The second required file is a bacterial phylogenetic tree. File format requirements:
 - newick format
