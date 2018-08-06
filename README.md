@@ -2,7 +2,7 @@
 Welcome to a tutorial on ClaaTU. This page is under construction to provide a tutorial guide for ClaaTU. The goals of this tutorial is for you to be able to (quickly) understand the theory behind ClaaTU, as well as be able to apply ClaaTU as a tool to your own data. 
 
 ### What is CLAATU?
-Claatu is a new bioinformatic tool created by Chris Gaulke in the Sharpton lab (https://github.com/chrisgaulke/Claatu). You can check out our new paper which implements this tool here (add link here). The ClaaTU Algorithm allows us to discover *Cladal Taxonomic Units*, or CTUs. If you've worked doing any microbiome analysis before, you are familiar with an Operational Taxonomic Unit (OTU) table that are output by many softwares such as QIIME, Mothur, or an Amplicon Sequence Variant (ASV) table output by Dada2. ClaaTU can work with any of these common software outputs to discover CTUs in your data. 
+Claatu is a new bioinformatic tool created in the Sharpton lab (https://github.com/chrisgaulke/Claatu). You can check out our new paper which implements this tool here (add link here). The ClaaTU Algorithm allows us to discover *Cladal Taxonomic Units*, or CTUs. If you've worked doing any microbiome analysis before, you are familiar with an Operational Taxonomic Unit (OTU) table that are output by many softwares such as QIIME, Mothur, or an Amplicon Sequence Variant (ASV) table output by Dada2. ClaaTU can work with any of these common software outputs to discover CTUs in your data. 
 
 ### What is a CTU?
 A CTU is simply a monophylitic clade of organisms within a phylogentic tree. A CTU can occur at any point along the phylogenetic tree: very close to the tree tips, or very deep within the tree. For the purposes of the tutorial, think of the tree tips as the OTU names. Think of nodes within the tree as CTU names.
@@ -52,7 +52,7 @@ Held within ```bin/``` are all the scripts which will carry out the Claatu algor
   cd tutorialData/
   ls
 ```
-Here, we can see there are three files. These are the tree files that you will need to run Claatu. Let's take a look at each one of them in a little more detail.
+Here, we can see there are three files that you will need to run Claatu. Let's take a look at each one of them in a little more detail.
 
 
 #### OTU Table
@@ -111,13 +111,37 @@ ls
 ```
 This step creates two output files:
 1. new_prepped_tree.tre
-This is our new prepped tree with nodes labeled. Lets go ahead and take a look at it:
+This is our new prepped tree with nodes labeled by dendropy. Lets go ahead and take a look at it:
+
+<p align="center">
+<kbd>
+<img src="Claatu-master/tutorialImages/TreePictureNodesLabeled.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
+</kbd>
+</p>
+
+This is our bacterial tree. Each clade we are trying to get information on is labeled with a blue dot. Our `new_prepped_tree.tre` is now midpoint rooted. Additionally each parent only has two children, and each child only has one parent. Let's, take a closer look at the nodelabels on a subclade: 
+
+<p align="center">
+<kbd>
+<img src="Claatu-master/tutorialImages/cladeZoomIn.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
+</kbd>
+</p>
+
+In Claatu, nodes are labeled by dendropy. We can see that dendropy has named the nodes in a *pre-traversal pattern* where the node number of the parent is guarenteed to be larger than that of a child. Note that dendropy does not use every integer in naming. Here is an example of a pre-traversal and the order that nodes are labeled.
+
+<p align="center">
+<kbd>
+<img src="Claatu-master/tutorialImages/PreTraversal.png" width="50%" height="50%" align="center" style="border:5px solid black"/>
+</kbd>
+</p>
+
 
 2. bootstraps_prep_tree.txt
 Ignore this file because our tree did not have any bootstraps.
 
 
 ### Step 2: Get the CTU Matrix (count_tree.py)
+
 ### Step 3: Get CTU Stats (clade_stat.py)
 ### Step 4: Get CTU taxonomy (tax_parser.py)
 ### Step 5: Node_info.py
