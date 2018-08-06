@@ -2,14 +2,28 @@
 Welcome to a tutorial on ClaaTU. This page is under construction to provide a tutorial guide for ClaaTU. The goals of this tutorial is for you to be able to (quickly) understand the theory behind ClaaTU, as well as be able to apply ClaaTU as a tool to your own data. 
 
 ### What is CLAATU?
-Claatu is a new bioinformatic tool created in the Sharpton lab (https://github.com/chrisgaulke/Claatu). You can check out our new paper which implements this tool here (add link here). The ClaaTU Algorithm allows us to discover *Cladal Taxonomic Units*, or CTUs. If you've worked doing any microbiome analysis before, you are familiar with an Operational Taxonomic Unit (OTU) table that are output by many softwares such as QIIME, Mothur, or an Amplicon Sequence Variant (ASV) table output by Dada2. ClaaTU can work with any of these common software outputs to discover CTUs in your data. 
+Claatu is a new bioinformatic tool created in the Sharpton lab (https://github.com/chrisgaulke/Claatu). You see our new paper which implements this tool here (add link here). The ClaaTU Algorithm allows us to discover *Cladal Taxonomic Units*, or CTUs. If you've worked doing any microbiome analysis before, you are familiar with an Operational Taxonomic Unit (OTU) table that are output by many softwares such as QIIME, Mothur, or an Amplicon Sequence Variant (ASV) table output by Dada2. ClaaTU can work with any of these common software outputs to discover CTUs in your data. 
 
 ### What is a CTU?
 A CTU is simply a monophylitic clade of organisms within a phylogentic tree. A CTU can occur at any point along the phylogenetic tree: very close to the tree tips, or very deep within the tree. For the purposes of the tutorial, think of the tree tips as the OTU names. Think of nodes within the tree as CTU names.
 
 [figure here]
 
-### ClaaTU Algorithm
+### Why use CTUs?
+Incorporating phylogeny into the assessment of how microbial lineages are distributed across communities can identify monophyletic clades of microbes that collectively manifest an association with ecological factors. For example, the clade highlighted in red in the image above is universally present across all mammalian microbiome samples, indicating that the clade may have evolved a conserved trait that facilitated its ubiquitous distribution. If we were to consider this relationship at the OTU level (i.e., considering the tips of the tree as appropriate units), the redundancy of OTUs within this clade would obscure the detection of this relationship. On the other hand, if we were to consider the genus level, the aggregation of this clade with others that do not possess the trait would similarly obscure this relationship. The ClaaTU (Cladal Taxonomic Units) workflow uses data files produced by third party microbiome analysis software (e.g., QIIME, Mothur, DADA2, etc.) to identify and quantify the abundance of specific clades in a user provided phylogenetic tree. This allows us to examine the abundance of clades across the input tree from tip to root. Currently, ClaaTU is run as a collection of scripts and a workflow is provided below.
+
+<p align="center">
+<kbd>
+<img src="Claatu-master/tutorialImages/ClaatuFig1.png" width="100%" height="100%" align="center" style="border:3px solid black"/>
+</kbd>
+</p>
+
+### ClaaTU Algorithm Overview
+<p align="center">
+<kbd>
+<img src="Claatu-master/tutorialImages/Workflow.png" width="100%" height="100%" align="center" style="border:3px solid black"/>
+</kbd>
+</p>
 The idea behind ClaaTU is simple. ClaaTU uses two input files:
 * An OTU or ASV table 
 * A phylogenetic tree representing how OTUs (or ASVs) are related to one another.
@@ -20,7 +34,6 @@ The output is a Cladal Taxonomic Unit Matrix m with the following properties:
 * the column names correspond to each node of the phylogenetic tree.
 * a m[i,j] corresponds to the sum of counts for each member of clade j found in sample i. 
 
-[figure here]
 
 ### Install
 First things first, lets install the software. 
@@ -141,11 +154,22 @@ Ignore this file because our tree did not have any bootstraps.
 
 
 ### Step 2: Get the CTU Matrix (count_tree.py)
+Now that we have the ClaaTU tree, we can run the algorithm. This next script will take the OTU matrix. You should already have this matrix from microbiome analyses. 
+
+```markdown
+python ../bin/count_tree.py otu.txt new_prepped_tree.tre ctus.txt
+```
+
+The output of this script is a clade taxonomic unit (CTU) table with internal node identifiers as columns and sample IDs as rows. We can see more of this file by typing ```cat ctus.txt```. These data can be used to examine differential abundance of clades across a case and control study. 
 
 ### Step 3: Get CTU Stats (clade_stat.py)
+
 ### Step 4: Get CTU taxonomy (tax_parser.py)
+
 ### Step 5: Node_info.py
+
 ### Step 6A: Significance (ptest_tree.py)
+
 ### Step 6B: Significance by Group (ptest_tree.py)
 
 
