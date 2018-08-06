@@ -13,7 +13,7 @@ Incorporating phylogeny into the assessment of how microbial lineages are distri
 
 <p align="center">
 <kbd>
-<img src="Claatu-master/tutorialImages/ClaatuFig1.png" width="100%" height="100%" align="center" style="border:3px solid black"/>
+<img src="Claatu-master/tutorialImages/claatuFig1.png" width="100%" height="100%" align="center" style="border:3px solid black"/>
 </kbd>
 </p>
 
