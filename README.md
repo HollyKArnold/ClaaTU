@@ -387,4 +387,11 @@ node5256_Carnivora  0.33  0.66  0.833
 ```
 This means that node 5256 was found in 33% of the animals that were mapped to the group Carnivora. 
 
+##### 2. groupPtest.txt_stats.txt
+This file contains the following format
+* Column 1: The node ID number (clade i), followed by the group label for which this pTest is run for (group j).
+* Column 2: The  *observed group coreness* of this clade for group j. 
+* Column 3: The mean *shuffled group coreness* for clade i of group j.
+* Column 4: The Z score of how observed differ from the shuffled observations.
+* Column 5: The group pvalue for the coreness of clade i. 
 
