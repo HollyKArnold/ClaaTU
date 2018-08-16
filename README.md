@@ -105,7 +105,13 @@ more bacterial.tre
 In our tutorial dataset, we see that we have a newick formated file, and that we have tree tips named similarly to the otu table. 
 
 #### OTU Taxonomy table
+Lastly, an optional file is the OTU taxonomy table. This is the standard QIIME output taxonomy table. We can see that rows are OTU names and columns are the taxonomy. 
 
+<p align="center">
+<kbd>
+<img src="Claatu-master/tutorialImages/tax.png" width="60%" height="60%" align="center" style="border:3px solid black"/>
+</kbd>
+</p>
 
 ### Step 1: Prep phylogenetic tree (prep_tree.py)
 
