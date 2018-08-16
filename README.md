@@ -122,8 +122,14 @@ Our first step is to prep the phylogenetic tree that we've created for use in th
 4. Bootstraps (Optional). If the tree has bootstrap values, you can read more [here](https://github.com/chrisgaulke/Claatu/blob/master/bin/prep_tree.py). Our tree does not have bootstraps, so we will pass the `-nbs` flag to indicate no bootstraps.
 
  
-Lets go ahead and run the command now and look at the output files
-```python
+Lets go ahead and run the command now and look at the output files. This command has the form:
+
+```markdown
+python <path_to_ClaaTU/bin/prep_tree.py> <input_newick_tree.tre>
+```
+
+So we will type:
+```markdown
 python ../bin/prep_tree.py bacteria.tre -mid -up_bi -nbs
 ls
 ```
@@ -161,6 +167,12 @@ Ignore this file because our tree did not have any bootstraps.
 ### Step 2: Get the CTU Matrix (count_tree.py)
 Now that we have the ClaaTU tree, we can run the algorithm. This next script will take the OTU matrix. You should already have this matrix from microbiome analyses. 
 
+This command has the form:
+```markdown
+python <path_to_ClaaTU/bin/count_tree.py> <otu_table> <prepped_tree> <out_file_path>
+```
+
+So we will run:
 ```markdown
 python ../bin/count_tree.py otu.txt new_prepped_tree.tre ctus.txt
 ```
@@ -175,6 +187,13 @@ The output of this script is a clade taxonomic unit (CTU) table with internal no
 
 ### Step 3: Get CTU Stats (clade_stat.py)
 This step lets us get some clade stats. We pass the cladeStat for the prefix of our new files to be created. 
+
+This command has the form:
+```markdown
+python <path_to_ClaaTU/bin/clade_stat.py> <prepped_tree> <tax_file> <out_file_path> -p <file_prefix>
+```
+
+So we will run:
 ```markdown
 python ../bin/clade_stat.py new_prepped_tree.tre tax.txt . -p cladeStat
 ls
@@ -205,6 +224,14 @@ And an example of our file: ```head cladeStat_clade_size.txt```:
 One clade stat of interest to many researchers is taxonomic labels associated with each clade. This is particularly interesting if the clade is significantly different between case and control. This file contains a list of each clade followed by the taxonomic string of each OTU. This file will be used as a stepping stone for our next step of the process. 
 
 ### Step 4: Get CTU taxonomy (tax_parser.py)
+
+This command has the form:
+
+```markdown
+python <path_to_ClaaTU/bin/tax_parser.py> <prefix>_node2tax.txt <outfile_name>
+  ```
+
+So we will run:
 ```markdown
 python ../bin/tax_parser.py cladeStat_nodes2tax.txt tax_clades.txt
 ```
@@ -231,6 +258,12 @@ Here, we have a dictionary of nodes mapped to their clade label. We can see that
 ### Step 5: Node_info.py
 Next, we will get some more information about each clade. 
 
+This command has the form:
+```markdown
+python <path_to_ClaaTU/bin/node_info.py> <prepped_tree> <out_file_path> -p <file_prefix>
+```
+
+So we will run:
 ```markdown
 python ../bin/node_info.py new_prepped_tree.tre . -p node_info
 ```
@@ -257,7 +290,40 @@ This contains one number that corresponds to the median distance of all nodes.
 Now, we may want to determine if a clade is more core than expected by random chance. Here, we define clade "coreness" as the percent of samples that a clade is found in. We may want to find "core clades" across all samples (step 6A) or clades that have high coreness in one group (i.e. healthy patients), but have low coreness in a different group (i.e. diseased patients) (setp 6B). To do this, we need to conduct a ptest. 
 
 ### Step 6A: Significance (ptest_tree.py)
+The first step is to determine if we can find clades that are more core than expected by chance across our entire OTU table. This may take a couple of seconds to run depending on how many permutations you want to run. In this case, we have set the number of permutations to 100 (passed with the -p flag).
 
+This command has the form:
+
+```markdown
+ python <path_to_ClaaTU/bin/ptest_tree.py> <otu_table.txt> <prepped_tree> <outfile.txt> -p <#permutations>
+ ```
+ 
+ So we will run:
+
+```markdown
+python ../bin/ptest_tree.py otu.txt new_prepped_tree.tre ptest.txt -p 100
+```
+
+
+At the start, Claatu calculates a *observed clade coreness* for each clade. *Clade coreness* is defined as the number of samples that that clade is found in divided by total number of samples. Then, for each permutation, claatu does the following:
+1. Shuffles the OTU matrix across OTUs. This means that each sample still has the same OTU count distribution, but different counts have been assigned to different OTUs.
+2. Recalculates the ctu matrix (as we did in step 2 above) using the tree file.
+3. For each clade, calculates a clade coreness of the shuffled matrix, giving a *shuffled clade coreness* for each clade.
+At the end of the permutations, Claatu uses the difference between *observed clade coreness* and every *shuffled clade coreness* to calculate a zscore and p-value for every clade. 
+
+Let's look at what this looks like in practical terms of our output files. This step outputs two files:
+
+#### ptest.txt
+-Column 1: The clade name
+-Column 2: The observed clade coreness for each clade
+-Column 3 through the end column: The shuffled clade coreness for each clade for each permutation.
+
+### ptest.txt_stats.txt
+-Column 1: The clade name
+-Column 2: The *observed cladal coreness* for each clade
+-Column 3: Mean of all *shuffled clade coreness* stats in ptest.txt
+-Column 4: Zcore for every clade
+-Column 5: The p-value for the ztest
 
 ### Step 6B: Significance by Group (ptest_tree.py)
 
