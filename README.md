@@ -314,17 +314,77 @@ At the end of the permutations, Claatu uses the difference between *observed cla
 Let's look at what this looks like in practical terms of our output files. This step outputs two files:
 
 #### ptest.txt
--Column 1: The clade name
--Column 2: The observed clade coreness for each clade
--Column 3 through the end column: The shuffled clade coreness for each clade for each permutation.
+* Column 1: The clade name
+* Column 2: The observed clade coreness for each clade
+* Column 3 through the end column: The shuffled clade coreness for each clade for each permutation.
 
 ### ptest.txt_stats.txt
--Column 1: The clade name
--Column 2: The *observed cladal coreness* for each clade
--Column 3: Mean of all *shuffled clade coreness* stats in ptest.txt
--Column 4: Zcore for every clade
--Column 5: The p-value for the ztest
+* Column 1: The clade name
+* Column 2: The *observed cladal coreness* for each clade
+* Column 3: Mean of all *shuffled clade coreness* stats in ptest.txt
+* Column 4: Zcore for every clade
+* Column 5: The p-value for the ztest
 
 ### Step 6B: Significance by Group (ptest_tree.py)
+It also might be interest if a particular clade is more core to one group of individuals (i.e. healthy) vs another (i.e. diseased), or any other experimental grouping of interest. In our tutorial dataset, our samples are from 22 different mammals. At the order level, each of these mammals fall into one of three taxonomic groups: Artiodactyla, Carnivora, or Primates. If we are interested in determining which clades may be core to say Primates, we can run this step.  
+
+```markdown
+head map.txt
+head groupMap.txt
+```
+If we look in our groupMap.txt file:
+
+```markdown
+BigHornSheep	Artiodactyla
+Okapi	Artiodactyla
+Giraffe	Artiodactyla
+Gazelle	Artiodactyla
+Springbok	Artiodactyla
+Urial	Artiodactyla
+WartyPig	Artiodactyla
+BushDog	Carnivora
+Lion	Carnivora
+BlackBear	Carnivora
+```
+
+We can see that the format for the file is shown. Note there are no headers in this file.
+```markdown
+sampleID1   groupLabel
+sampleID2   groupLabel
+...
+sampleIDN   groupLabel
+```
+
+If given this group file, in lieu of performing the steps described in 6A above, Claatu will do the following.
+1. Calculate the *observed group coreness* for each clade in each group. In our tutorial example, this means for every clade, we will have three coreness values calculated across each group (Primates, Arteriodactyla, Carnivores). The *observed group coreness* is simply the number of group samples a clade is found divided by the total number of samples that are a part of the group.
+2. The OTU matrix will be shuffled. For each permutation:
+2A. The CTU matrix will be calculated for the new shuffled OTU matrix.
+2B. A *shuffled group coreness* will be calculated for each clade from the suffled OTU table. 
+
+The format of this command is:
+```markdown
+ python <path_to_ClaaTU/bin/ptest_tree.py> <otu_table.txt> <prepped_tree> <outfile.txt> -p <#permutations> -g <mapping_file>
+```
+
+So we will run this command. This will produce two output files
+
+```markdown
+python ../bin/ptest_tree.py otu.txt new_prepped_tree.tre groupPtest.txt -p 100 -g groupMap.txt
+```
+
+
+#### 1. groupPtest.txt
+This file contains the following format:
+* Column 1: The node ID number: followed by a ```nodeI_groupLabelJ```. This means that this line is for node i, with pvalues calculated for coreness of node i across samples of group j. 
+* Column 2: This is the *observed group coreness* in the origional CTU.txt table for clade i across group j.
+* Column 3 - end: These are the *shuffled group coreness* values for permutations 1, ..., p. 
+
+So the head of our groupPtest.txt looks like this:
+
+```markdown
+exp_values 1  2 3 ...
+node5256_Carnivora  0.33  0.66  0.833
+```
+This means that node 5256 was found in 33% of the animals that were mapped to the group Carnivora. 
 
 
