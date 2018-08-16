@@ -229,8 +229,35 @@ Lets take a look at how that practically words for our ```tax_clades.txt``` file
 Here, we have a dictionary of nodes mapped to their clade label. We can see that the output shares the nomenclature of the QIIME taxonomy table, where "o__XXX" corresponds to a taxonomic level of order, "f__YYY" corresponds to the taxonomic level of family, and so on. 
 
 ### Step 5: Node_info.py
+Next, we will get some more information about each clade. 
+
+```markdown
+python ../bin/node_info.py new_prepped_tree.tre . -p node_info
+```
+This should produce three files.
+
+##### node_info_levels.txt
+This file contains a dictionary that maps each clade to its level, a measure of how nested it is. For example, lets take a look at this photo:
+
+<p align="center">
+<kbd>
+<img src="Claatu-master/tutorialImages/cladeLevel.png" width="50%" height="50%" align="center" style="border:3px solid black"/>
+</kbd>
+</p>
+
+The level corresponds to how many other nodes are between clade X and the root. 
+
+##### node_info_dist.txt
+This file contains a dictionary that maps each clade to its distance from the root. 
+
+##### node_info_dist_median.txt
+This contains one number that corresponds to the median distance of all nodes.
+
+### Step 6: Significance
+Now, we may want to determine if a clade is more core than expected by random chance. Here, we define clade "coreness" as the percent of samples that a clade is found in. We may want to find "core clades" across all samples (step 6A) or clades that have high coreness in one group (i.e. healthy patients), but have low coreness in a different group (i.e. diseased patients) (setp 6B). To do this, we need to conduct a ptest. 
 
 ### Step 6A: Significance (ptest_tree.py)
+
 
 ### Step 6B: Significance by Group (ptest_tree.py)
 
