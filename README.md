@@ -306,7 +306,7 @@ python ../bin/ptest_tree.py otu.txt new_prepped_tree.tre ptest.txt -p 100
 
 
 At the start, Claatu calculates a *observed clade coreness* for each clade. *Clade coreness* is defined as the number of samples that that clade is found in divided by total number of samples. Then, for each permutation, claatu does the following:
-1. Shuffles the OTU matrix across OTUs. This means that each sample still has the same OTU count distribution, but different counts have been assigned to different OTUs.
+1. Shuffles the tree tip to OTU labels. This means that each sample still has the same OTU count distribution, but different OTUs have been assigned to different tree tip labels.
 2. Recalculates the ctu matrix (as we did in step 2 above) using the tree file.
 3. For each clade, calculates a clade coreness of the shuffled matrix, giving a *shuffled clade coreness* for each clade.
 At the end of the permutations, Claatu uses the difference between *observed clade coreness* and every *shuffled clade coreness* to calculate a zscore and p-value for every clade. 
@@ -357,7 +357,7 @@ sampleIDN   groupLabel
 
 If given this group file, in lieu of performing the steps described in 6A above, Claatu will do the following.
 1. Calculate the *observed group coreness* for each clade in each group. In our tutorial example, this means for every clade, we will have three coreness values calculated across each group (Primates, Arteriodactyla, Carnivores). The *observed group coreness* is simply the number of group samples a clade is found divided by the total number of samples that are a part of the group.
-2. The OTU matrix will be shuffled. For each permutation:
+2. Shuffle the tip-to-OTU labels. For each permutation:
 2A. The CTU matrix will be calculated for the new shuffled OTU matrix.
 2B. A *shuffled group coreness* will be calculated for each clade from the suffled OTU table. 
 
