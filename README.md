@@ -165,11 +165,68 @@ Now that we have the ClaaTU tree, we can run the algorithm. This next script wil
 python ../bin/count_tree.py otu.txt new_prepped_tree.tre ctus.txt
 ```
 
-The output of this script is a clade taxonomic unit (CTU) table with internal node identifiers as columns and sample IDs as rows. We can see more of this file by typing ```cat ctus.txt```. These data can be used to examine differential abundance of clades across a case and control study. 
+The output of this script is a clade taxonomic unit (CTU) table with internal node identifiers as columns and sample IDs as rows. We can see more of this file by typing ```cat ctus.txt```. These data can be used to examine differential abundance of clades across a case and control study. We have just done this part of the workflow:
+
+<p align="center">
+<kbd>
+<img src="Claatu-master/tutorialImages/Workflow.png" width="100%" height="100%" align="center" style="border:3px solid black"/>
+</kbd>
+</p>
 
 ### Step 3: Get CTU Stats (clade_stat.py)
+This step lets us get some clade stats. We pass the cladeStat for the prefix of our new files to be created. 
+```markdown
+python ../bin/clade_stat.py new_prepped_tree.tre tax.txt . -p cladeStat
+ls
+
+```
+
+We see after runing this command we have two new files.
+A. ```cladeStat_clade_size.txt```
+B. ```cladeStat_nodes2tax.txt```
+
+##### 3A. cladeStat_clade_size.txt
+Clade size contains two columns. The first column is the node name and the second column is the clade size. Clade size is defined as the number of tips that a particular clade has. Here is an example:
+
+<p align="center">
+<kbd>
+<img src="Claatu-master/tutorialImages/claatu_size.png" width="50%" height="50%" align="center" style="border:3px solid black"/>
+</kbd>
+</p>
+
+And an example of our file: ```head cladeStat_clade_size.txt```:
+<p align="center">
+<kbd>
+<img src="Claatu-master/tutorialImages/cladeSize.png" width="50%" height="50%" align="center" style="border:3px solid black"/>
+</kbd>
+</p>
+
+##### 3B. cladeStat_Nodes2tax.txt
+One clade stat of interest to many researchers is taxonomic labels associated with each clade. This is particularly interesting if the clade is significantly different between case and control. This file contains a list of each clade followed by the taxonomic string of each OTU. This file will be used as a stepping stone for our next step of the process. 
 
 ### Step 4: Get CTU taxonomy (tax_parser.py)
+```markdown
+python ../bin/tax_parser.py cladeStat_nodes2tax.txt tax_clades.txt
+```
+
+This step leaves us with a new file ```tax_clades.txt```. This is the taxonomy assigned to each clade. Claatu propagates taxonomic levels assigned to the tips up to the clade. The lowest shared taxonomic level of all tips is assigned to the clade. So for example, lets look at clade A. Clade A shares taxonomic labels of all tips down to the genus level. Thus, clade A is labeled with the genus name Ruminococcus. Clade D on the other hand, does not share taxonomic labels at the genus levels across all of the tips. However, all tips share the same taxonomic level at the family level, and thus clade D is labeled as Ruminococcaceae. It is important to note that in order for a taxonomic level to be assigned ALL tips must share that taxonomic label.
+
+<p align="center">
+<kbd>
+<img src="Claatu-master/tutorialImages/taxonomyWorkflow.png" width="50%" height="50%" align="center" style="border:3px solid black"/>
+</kbd>
+</p>
+
+This step does require a ```tax.txt``` file that you can get from QIIME. If using a dada2 taxonomy file, check out the helper script ```dada2_tax_convert.pl``` in ```bin/``` to help you get the output in a usable format.
+
+Lets take a look at how that practically words for our ```tax_clades.txt``` file. 
+<p align="center">
+<kbd>
+<img src="Claatu-master/tutorialImages/taxFile.png" width="50%" height="50%" align="center" style="border:3px solid black"/>
+</kbd>
+</p>
+
+Here, we have a dictionary of nodes mapped to their clade label. We can see that the output shares the nomenclature of the QIIME taxonomy table, where "o__XXX" corresponds to a taxonomic level of order, "f__YYY" corresponds to the taxonomic level of family, and so on. 
 
 ### Step 5: Node_info.py
 
