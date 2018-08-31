@@ -108,6 +108,9 @@ In our tutorial dataset, we see that we have a newick formated file, and that we
 
 #### OTU Taxonomy table
 Lastly, an optional file is the OTU taxonomy table. This is the standard QIIME output taxonomy table. We can see that rows are OTU names and columns are the taxonomy. 
+```markdown
+more tax.txt
+```
 
 <p align="center">
 <kbd>
