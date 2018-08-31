@@ -311,6 +311,10 @@ This step leaves us with a new file ```tax_clades.txt```. This is the taxonomy a
 This step does require a ```tax.txt``` file that you can get from QIIME. If using a dada2 taxonomy file, check out the helper script ```dada2_tax_convert.pl``` in ```bin/``` to help you get the output in a usable format.
 
 Lets take a look at how that practically words for our ```tax_clades.txt``` file. 
+```markdown
+more tax_clades.txt
+```
+
 <p align="center">
 <kbd>
 <img src="Claatu-master/tutorialImages/taxFile.png" width="50%" height="50%" align="center" style="border:3px solid black"/>
