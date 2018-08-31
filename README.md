@@ -256,6 +256,37 @@ And an example of our file: ```head cladeStat_clade_size.txt```:
 ##### 3B. cladeStat_Nodes2tax.txt
 One clade stat of interest to many researchers is taxonomic labels associated with each clade. This is particularly interesting if the clade is significantly different between case and control. This file contains a list of each clade followed by the taxonomic string of each OTU. This file will be used as a stepping stone for our next step of the process. 
 
+```markdown
+ more cladeStat_nodes2tax.txt
+ ```
+ 
+ ```markdown
+ node1422	k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; c__Bac
+teroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Pre
+votella; s__copri, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; c__
+Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__
+Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; 
+c__Bacteroidia; o__Bacteroidales, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bac
+teroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prev
+otellaceae; g__Prevotella; s__, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__, k__Bacteria; p__Bacteroide
+tes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; 
+g__Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bacteroidete
+s; c__Bacteroidia; o__Bacteroidales, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__, 
+node3376	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Christensenellaceae; g__; s__, k__Bacteria; p__Firmicutes; c__Clostridia; o__Clost
+ridiales; f__; g__; s__, k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Christensenellaceae; g__; s__, k__Bacteria; p__Firmicutes; c__Clostridia;
+ o__Clostridiales, k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Christensenellaceae; g__; s__, k__Bacteria; p__Firmicutes; c__Clostridia; o__Cl
+ostridiales; f__Christensenellaceae; g__; s__, k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Christensenellaceae; g__; s__, 
+node1427	k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; c__Bac
+teroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Pre
+votella; s__copri, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; c__
+Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__
+Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bacteroidetes; 
+c__Bacteroidia; o__Bacteroidales, k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, k__Bacteria; p__Bac
+teroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__copri, 
+node5765	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__; s__, k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridi
+ales; f__Ruminococcaceae; g__; s__, 
+```
+
 ### Step 4: Get CTU taxonomy (tax_parser.py)
 
 This command has the form:
