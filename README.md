@@ -63,6 +63,8 @@ Held within ```bin/``` are all the scripts which will carry out the Claatu algor
 ```markdown 
   cd tutorialData/
   ls
+  bacteria.tre    otu.txt     map.txt     tax.txt
+
 ```
 Here, we can see there are three files that you will need to run Claatu. Let's take a look at each one of them in a little more detail.
 
