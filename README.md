@@ -63,7 +63,7 @@ Held within ```bin/``` are all the scripts which will carry out the Claatu algor
 ```markdown 
   cd tutorialData/
   ls
-  bacteria.tre    otu.txt     map.txt     tax.txt
+  bacteria.tre    otu.txt     map.txt     tax.txt     groupMap.txt
 
 ```
 Here, we can see there are three files that you will need to run Claatu. Let's take a look at each one of them in a little more detail.
@@ -117,6 +117,34 @@ more tax.txt
 <img src="Claatu-master/tutorialImages/tax.png" width="60%" height="60%" align="center" style="border:3px solid black"/>
 </kbd>
 </p>
+
+#### Group Mapping File
+This file contains all the sample names, each of which is mapped to a group ID. In this case, the group ID is one of three mammalian taxonomic orders. 
+
+```markdown
+BigHornSheep	Artiodactyla
+Okapi	Artiodactyla
+Giraffe	Artiodactyla
+Gazelle	Artiodactyla
+Springbok	Artiodactyla
+Urial	Artiodactyla
+WartyPig	Artiodactyla
+BushDog	Carnivora
+Lion	Carnivora
+BlackBear	Carnivora
+PolarBear	Carnivora
+SpectacledBear	Carnivora
+Hyena	Carnivora
+Colobus	Primates
+BlackLemur	Primates
+Chimp	Primates
+Callimicos	Primates
+Baboon	Primates
+RingTailedLemur	Primates
+Orangutan	Primates
+Gorilla	Primates
+Saki	Primates
+```
 
 ### Step 1: Prep phylogenetic tree (prep_tree.py)
 
