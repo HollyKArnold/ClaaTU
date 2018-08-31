@@ -95,7 +95,7 @@ The second required file is a bacterial phylogenetic tree. File format requireme
 - The tip labels must match the OTU labels in our otutable (`otu1, otu2, ... otuN`) exactly. Likewise, the names in the `.tre` file must exactly match those in the otu table.
 
 ```markdown
-more bacterial.tre
+more bacteria.tre
 ```
 
 <p align="center">
