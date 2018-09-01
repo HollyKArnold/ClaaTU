@@ -37,7 +37,7 @@ The output is a Cladal Taxonomic Unit Matrix m with the following properties:
 ### Install
 First things first, lets install the software. 
 ```markdown
-git git@github.com:arnold3/ClaaTU.git
+git clone https://github.com/arnold3/ClaaTU
 ```
 
 ### Dependencies
